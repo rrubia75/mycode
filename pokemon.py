@@ -7,7 +7,10 @@ with open("pokedex.txt","r") as pokedata:
     for x in csv.DictReader(pokedata):
         pokedict = dict(x)
         if pokedict["Name"] == pokename:
-            print(f"{pokedict['Name']} is of the {pokedict['Type 1']} and {pokedict['Type 2']} types!")
+            if pokedict["Type 2"]:
+                print(f"{pokedict['Name']} is of the {pokedict['Type 1']} and {pokedict['Type 2']} types!")
+            else:
+                print(f"{pokedict['Name']} is of the {pokedict['Type 1']} type!")
             sleep(1)
             print("Which stat would you like to know? (HP,Attack,Defense,Sp. Atk,Sp. Def or Speed)" )
             x= input().lower()
